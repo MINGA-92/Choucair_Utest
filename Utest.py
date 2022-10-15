@@ -452,10 +452,9 @@ def ChromeDriverInicial():
 			print("Ingresando A= " +(driver.current_url)+ " ...")
 			ComprobarDriver= "OK"
 			time.sleep(2)
-			
 		except Exception as e:
 			print("☠ eRrOr Instalando Chrome... ☠" + str(e))
-			ComprobarDriver = "False"
+			ComprobarDriver = False
 			time.sleep(2)
 			try:
 				#Capturar De Pantalla.
@@ -465,5 +464,13 @@ def ChromeDriverInicial():
 			except:
 				print("eRrOr=>  !No Se Guardo La Imagen!    🤔")
 				pass
+
+		print("ComprobarDriver: "+ ComprobarDriver)
+		if ComprobarDriver == "OK":
+			time.sleep(2)
+			Registro()
+		else:
+			time.sleep(2)
+			ChromeDriverInicial()
 
 ChromeDriverInicial()
